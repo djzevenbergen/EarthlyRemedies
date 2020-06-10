@@ -67,7 +67,8 @@ namespace EarthlyRemedies.Controllers
 
     // GET api/Remedies
     [HttpGet]
-    public ActionResult<IEnumerable<Remedy>> Get(string name, string details, string ailment, string category, string ingredients, int userId)
+    // public ActionResult<IEnumerable<Remedy>> Get(string name, string details, string ailment, string category, string ingredients, int userId)
+    public ActionResult<Dictionary<string, object>> Get(string name, string details, string ailment, string category, string ingredients, int userId)
     {
       var query = _db.Remedies.AsQueryable();
 
@@ -81,7 +82,7 @@ namespace EarthlyRemedies.Controllers
         query = query.Where(entry => entry.Details.Contains(details));
       }
 
-      if (details != null)
+      if (ingredients != null)
       {
         query = query.Where(entry => entry.Ingredients.Contains(ingredients));
       }
@@ -100,8 +101,10 @@ namespace EarthlyRemedies.Controllers
       {
         query = query.Where(entry => entry.UserId == userId);
       }
-
-      return query.ToList();
+      Dictionary<string, object> response = new Dictionary<string, object>();
+      response.Add("categories", EnvironmentVariables.Categories);
+      response.Add("remedies", query);
+      return response;
     }
   }
 }

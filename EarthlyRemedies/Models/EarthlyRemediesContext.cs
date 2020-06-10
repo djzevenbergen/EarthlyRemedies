@@ -11,6 +11,7 @@ namespace EarthlyRemedies.Models
 
     public DbSet<Remedy> Remedies { get; set; }
     public DbSet<Rating> Ratings { get; set; }
+    public DbSet<User> Users { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -34,6 +35,14 @@ namespace EarthlyRemedies.Models
         new Rating { RatingId = 2, Stars = 3, RemedyId = 2, UserId = 1, Comments = "Not sure it did anything." },
         new Rating { RatingId = 3, Stars = 1, RemedyId = 2, UserId = 3, Comments = "Best ever!!!" }
       );
+
+      builder.Entity<User>()
+      .HasData(
+        new User { Id = 1, FirstName = "Julia", LastName = "Test", Username = "JuliaTest", Password = "test" },
+        new User { Id = 2, FirstName = "Jason", LastName = "Test", Username = "JasonTest", Password = "test" },
+        new User { Id = 3, FirstName = "DJ", LastName = "Test", Username = "DJTest", Password = "test" }
+      );
+
     }
 
 

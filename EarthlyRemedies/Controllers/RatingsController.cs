@@ -48,8 +48,6 @@ namespace EarthlyRemedies.Controllers
       {
         query = query.Where(entry => entry.UserId == userId);
       }
-
-
       return query.ToList();
     }
 

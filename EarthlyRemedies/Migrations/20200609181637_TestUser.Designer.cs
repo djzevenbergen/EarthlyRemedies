@@ -2,14 +2,16 @@
 using EarthlyRemedies.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EarthlyRemedies.Migrations
 {
     [DbContext(typeof(EarthlyRemediesContext))]
-    partial class EarthlyRemediesContextModelSnapshot : ModelSnapshot
+    [Migration("20200609181637_TestUser")]
+    partial class TestUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -207,32 +209,6 @@ namespace EarthlyRemedies.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            FirstName = "Julia",
-                            LastName = "Test",
-                            Password = "test",
-                            Username = "JuliaTest"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            FirstName = "Jason",
-                            LastName = "Test",
-                            Password = "test",
-                            Username = "JasonTest"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            FirstName = "DJ",
-                            LastName = "Test",
-                            Password = "test",
-                            Username = "DJTest"
-                        });
                 });
 #pragma warning restore 612, 618
         }

@@ -1,14 +1,11 @@
-// using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
-// namespace EarthlyRemedies.Models
-// {
-//   public class Category
-//   {
-//     [Required]
-//     public int CategoryId { get; set; }
-//     [Required]
-//     [StringLength(20)]
-//     public int Name { get; set; }
+namespace EarthlyRemedies.Models
+{
+  public static class EnvironmentVariables
+  {
+    public static List<string> Categories = new List<string> { "GI", "respiratory", "skin", "eyes", "hair", "musculoskeletal", "endocrine", "chakra", "pineal", "lymphatic", "cardiovascular", "digestive", "nervous", "reproductive" };
 
-//   }
-// }
+  }
+}
